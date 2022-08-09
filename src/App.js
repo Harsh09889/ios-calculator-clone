@@ -13,7 +13,7 @@ function App() {
   function equals(){
     if(currOperation){
 
-      let ans = evaluate(currOperation);
+      let ans = evaluate(currOperation,currOperand);
       setPrevOperand(0);
       setoperation('')
       setcurrOperand(ans+"")
@@ -51,19 +51,19 @@ function App() {
     }
   }
 
-  function evaluate(operation){
+  function evaluate(operation,currentOperand){
     let ans;
     if (operation === '/'){
-      ans = prevOperand / currOperand
+      ans = prevOperand / Number(currentOperand)
     }
     if (operation === 'X'){
-      ans = prevOperand * currOperand
+      ans = prevOperand * Number(currentOperand)
     }
     if (operation === '+'){
-      ans = Number(prevOperand )+ Number(currOperand )
+      ans = Number(prevOperand )+ Number(currentOperand )
     }
     if (operation === '-'){
-      ans = prevOperand - currOperand
+      ans = prevOperand - Number(currentOperand)
     }
 
     return ans;
@@ -74,7 +74,7 @@ function App() {
       if(operation === "/") {
          
         if (currOperand && currOperation){
-          let ans = evaluate(currOperation);
+          let ans = evaluate(currOperation,currOperand);
           setPrevOperand(ans);
           setoperation(operation)
           setcurrOperand(0)
@@ -92,7 +92,7 @@ function App() {
       if(operation === "X") {
          
         if (currOperand && currOperation){
-          let ans = evaluate(currOperation);
+          let ans = evaluate(currOperation, currOperand);
           setPrevOperand(ans);
           setoperation(operation)
           setcurrOperand(0)
@@ -111,7 +111,7 @@ function App() {
       if(operation === "+") {
          
         if (currOperand && currOperation){
-          let ans = evaluate(currOperation);
+          let ans = evaluate(currOperation, currOperand);
           setPrevOperand(ans);
           setoperation(operation)
           setcurrOperand(0)
@@ -130,7 +130,7 @@ function App() {
       if(operation === "-") {
          
         if (currOperand && currOperation){
-          let ans = evaluate(currOperation);
+          let ans = evaluate(currOperation, currOperand);
           setPrevOperand(ans);
           setoperation(operation)
           setcurrOperand(0)
@@ -160,7 +160,15 @@ function App() {
   }
 
   function percent(){
-    currOperand && setcurrOperand(currOperand/100)
+    !prevOperand && currOperand && setcurrOperand(currOperand/100)
+    if(currOperation && currOperand) {
+      let per = currOperand/100;
+      let ans = evaluate(currOperation,per)
+      setcurrOperand(ans)
+      setPrevOperand(0)
+      setoperation('')
+    }
+    
   }
 
   return (
