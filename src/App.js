@@ -149,7 +149,14 @@ function App() {
 
 
   function del(){
-    setcurrOperand(parseInt(currOperand/10))
+    let deleted = currOperand+''
+    if (deleted.length === 1) {
+      setcurrOperand(0)
+      return
+    }
+
+    deleted = deleted.slice(0,deleted.length-1)
+    setcurrOperand(deleted)
   }
 
   return (
