@@ -31,12 +31,12 @@ function App() {
   function digitHandle(digit) {
     
     let current = currOperand+''
-    if (current.includes('.') && digit == '.'){
+    if (current.includes('.') && digit === '.'){
       console.log(currOperand)
       return
     }
 
-    if(currOperand == 0 && digit == 0){
+    if(currOperand === 0 && digit === 0){
       return
     }
     
@@ -53,16 +53,16 @@ function App() {
 
   function evaluate(operation){
     let ans;
-    if (operation == '/'){
+    if (operation === '/'){
       ans = prevOperand / currOperand
     }
-    if (operation == 'X'){
+    if (operation === 'X'){
       ans = prevOperand * currOperand
     }
-    if (operation == '+'){
+    if (operation === '+'){
       ans = Number(prevOperand )+ Number(currOperand )
     }
-    if (operation == '-'){
+    if (operation === '-'){
       ans = prevOperand - currOperand
     }
 
@@ -71,7 +71,7 @@ function App() {
 
   function operationHandle(operation) {
     
-      if(operation == "/") {
+      if(operation === "/") {
          
         if (currOperand && currOperation){
           let ans = evaluate(currOperation);
@@ -89,7 +89,7 @@ function App() {
         } 
       }
 
-      if(operation == "X") {
+      if(operation === "X") {
          
         if (currOperand && currOperation){
           let ans = evaluate(currOperation);
@@ -108,7 +108,7 @@ function App() {
       }
 
 
-      if(operation == "+") {
+      if(operation === "+") {
          
         if (currOperand && currOperation){
           let ans = evaluate(currOperation);
@@ -127,7 +127,7 @@ function App() {
       }
 
 
-      if(operation == "-") {
+      if(operation === "-") {
          
         if (currOperand && currOperation){
           let ans = evaluate(currOperation);
