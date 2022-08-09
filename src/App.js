@@ -162,11 +162,17 @@ function App() {
   function percent(){
     !prevOperand && currOperand && setcurrOperand(currOperand/100)
     if(currOperation && currOperand) {
-      let per = currOperand/100;
-      let ans = evaluate(currOperation,per)
-      setcurrOperand(ans)
-      setPrevOperand(0)
-      setoperation('')
+      if(currOperation === 'X'){
+        let ans = evaluate(currOperation,currOperand)
+        setcurrOperand(ans/100)
+      }
+      else{
+        let percentage = prevOperand*currOperand/100
+        let ans = evaluate(currOperation,percentage)
+        setcurrOperand(ans)
+        setPrevOperand(0)
+        setoperation('')
+      }
     }
     
   }
