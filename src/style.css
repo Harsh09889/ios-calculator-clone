@@ -1,0 +1,77 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.calculator-grid{
+    display: grid;
+    margin-top: 4rem;
+    grid-template-columns: repeat(4,5rem);
+    grid-template-rows: minmax(5rem, auto) repeat(5,5rem);
+    background-color:black;
+    /* border-radius: 3rem; */
+    overflow: hidden;
+}
+
+.calculator-grid > button{
+    background-color: rgb(70, 70, 70);
+    color: white;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 1.75rem;
+    /* border: 1px solid grey; */
+}
+
+.calculator-grid > .ac, .calculator-grid > .delete{
+    background-color: rgba(255, 255, 255, 0.805);
+    color: black;
+}
+
+.calculator-grid > button:hover{
+    background-color: white;
+    color: black;
+}
+
+.calculator-grid > .span-two{
+    grid-column: span 2;
+    border-radius: 3rem;
+}
+
+.output{
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin-bottom: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 0.75rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .prev-operand {
+    color: azure;
+    font-size: 1.5rem;
+}
+.output .curr-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+
+.calculator-grid > .operation{
+    background-color: orange;
+}
+
+.calculator-grid > .digit{
+    background-color: rgba(255, 255, 255, 0.25);
+}
