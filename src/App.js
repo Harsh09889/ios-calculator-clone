@@ -159,6 +159,10 @@ function App() {
     setcurrOperand(deleted)
   }
 
+  function percent(){
+    currOperand && setcurrOperand(currOperand/100)
+  }
+
   return (
     
     <div className="calculator-grid">
@@ -166,7 +170,8 @@ function App() {
         <div className='prev-operand'>{prevOperand} {currOperation}</div>
         <div className='curr-operand'>{currOperand}</div>
       </div>
-      <button className='span-two ac' onClick={() => cllickdAC()}>AC</button>
+      <button className='ac' onClick={() => cllickdAC()}>AC</button>
+      <button className='delete' onClick={() => percent()}>%</button>
       <button className='delete' onClick={() => del()}>DEL</button>
       <OperationButton operation="/" click={() => operationHandle("/")}/>
       <DigitButton digit="1" click={() => digitHandle(1)}/>
