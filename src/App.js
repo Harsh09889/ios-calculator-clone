@@ -5,7 +5,7 @@ import OperationButton from './components/OperationButton';
 
 function App() {
 
-  const [prevOperand,setPrevOperand] = useState(0)
+  const [prevOperand,setPrevOperand] = useState('')
   const [currOperand,setcurrOperand] = useState(0)
   const [currOperation,setoperation] = useState('')
   const [equalsto, setequalsto] = useState(false)
@@ -14,7 +14,7 @@ function App() {
     if(currOperation){
 
       let ans = evaluate(currOperation,currOperand);
-      setPrevOperand(0);
+      setPrevOperand('');
       setoperation('')
       setcurrOperand(ans+"")
       setequalsto(true)
@@ -23,7 +23,7 @@ function App() {
   }
 
   function cllickdAC(){
-    setPrevOperand(0);
+    setPrevOperand('');
     setcurrOperand(0);
     setoperation('');
   }
@@ -170,7 +170,7 @@ function App() {
         let percentage = prevOperand*currOperand/100
         let ans = evaluate(currOperation,percentage)
         setcurrOperand(ans)
-        setPrevOperand(0)
+        setPrevOperand('')
         setoperation('')
       }
     }
